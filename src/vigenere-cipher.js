@@ -1,24 +1,21 @@
 const CustomError = require("../extensions/custom-error");
 
+/*
+ *
+ * This code needs refactoring. I don't have enough time for this now and
+ * I'll do it in the near future.
+ * Sorry for this :)
+ *
+*/ 
+
 class VigenereCipheringMachine {
 
   constructor(type) {
     this.type = type;
   }
 
-  get type() {
-    return this._type;
-  }
-
-  set type(value) {
-    if(value === false) { 
-      this._type = false;
-      return;
-    };
-    this._type = true;
-  } 
-
   encrypt(str, key) {
+    if (str === undefined || key === undefined) throw new Error();
     let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     str = str.toUpperCase().split("");
     key = key.toUpperCase().split("");
@@ -77,6 +74,7 @@ class VigenereCipheringMachine {
   }
   
   decrypt(str, key) {
+    if (str === undefined || key === undefined) throw new Error();
     let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     str = str.toUpperCase().split("");
     key = key.toUpperCase().split("");
