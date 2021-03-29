@@ -7,7 +7,7 @@ class VigenereCipheringMachine {
   }
 
   get type() {
-    return this._name;
+    return this._type;
   }
 
   set type(value) {
@@ -72,8 +72,8 @@ class VigenereCipheringMachine {
         result.push(alphabet[encryptCode[i]]);
       }
     }
-    result = result.join("");
-    return result;
+    if (this.type === false) result.reverse();
+    return result.join("");
   }
   
   decrypt(str, key) {
@@ -130,8 +130,8 @@ class VigenereCipheringMachine {
         result.push(alphabet[encryptCode[i]]);
       }
     }
-    result = result.join("");
-    return result;
+    if (this.type === false) result.reverse();
+    return result.join("");
   }
 }
 
